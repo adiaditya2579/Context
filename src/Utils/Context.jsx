@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState,createContext } from 'react'
 
-function Context() {
+export const UserContext = createContext()
+
+function Context(props) {
+  
+  let [user,setuser] = useState([
+    {id:1,name:"Aditya",city:"USA"},
+    {id:2,name:"Anurag",city:"Pakistan"},
+    {id:3,name:"sarthak",city:"USA"}
+  ])
+
+
   return (
-    <div>Context</div>
+
+    <UserContext.Provider value={{user,setuser}}>
+      {props.children}
+    </UserContext.Provider>
   )
 }
 
 export default Context
+
+
+
+
+
